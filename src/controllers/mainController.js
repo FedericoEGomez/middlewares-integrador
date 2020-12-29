@@ -1,9 +1,14 @@
+//----------* REQUIRE'S *----------//
 const fs = require('fs');
 const path = require('path');
 
+
+//----------* VARIABLE'S *----------//
 const pathProductsJSON = path.resolve(__dirname + '/../database/products.json');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+
+//----------* MAIN CONTROLLER *----------//
 const controller = {
 	index: (req, res) => {
 		const productsJSON = fs.readFileSync(pathProductsJSON, 'utf-8');
@@ -19,4 +24,6 @@ const controller = {
 	}
 };
 
+
+//----------* EXPORTS CONTROLLER *----------//
 module.exports = controller;
